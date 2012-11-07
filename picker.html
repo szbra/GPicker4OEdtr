@@ -23,10 +23,14 @@
 			var url = 'nothing';
 			if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
 				var doc = data[google.picker.Response.DOCUMENTS][0];
-				url = doc[google.picker.Document.URL];
-				opener.url = url;
-				window.close();
+				var url = doc[google.picker.Document.URL];
+				
+				var nonHash = window.location.href.split('#')[0]; //$NON-NLS-0$
+				var hostName = nonHash.substring(0, nonHash.length - window.location.pathname.length);
+				window.parent.postMessage(JSON.stringify({result: url}), hostName);
+				return;
 			}
+			window.parent.postMessage(JSON.stringify({cancelled: "true"}), hostName);
 		}
 
 		// Use the Google Loader script to load the google.picker script.
