@@ -1,4 +1,4 @@
-orion-picker
-============
+Google Picker 4 Orion Editor
+============================
 
-Google Picker plugin for Eclipse Orion
+Orion Editor command using Google Picker
