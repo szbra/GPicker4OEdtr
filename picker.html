@@ -24,13 +24,11 @@
 			if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
 				var doc = data[google.picker.Response.DOCUMENTS][0];
 				var url = doc[google.picker.Document.URL];
-				
-				var nonHash = window.location.href.split('#')[0]; //$NON-NLS-0$
-				var hostName = nonHash.substring(0, nonHash.length - window.location.pathname.length);
-				window.parent.postMessage(JSON.stringify({result: url}), hostName);
+				window.parent.postMessage(JSON.stringify({pageService: "orion.page.delegatedUI", source: "googlePicker", result: url}), "*");
 				return;
+			} else if (data[google.picker.Response.ACTION] == google.picker.Action.CANCEL) {
+				window.parent.postMessage(JSON.stringify({pageService: "orion.page.delegatedUI", source: "googlePicker", cancelled: "true"}), "*");
 			}
-			window.parent.postMessage(JSON.stringify({cancelled: "true"}), hostName);
 		}
 
 		// Use the Google Loader script to load the google.picker script.
