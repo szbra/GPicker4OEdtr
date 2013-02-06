@@ -15,12 +15,17 @@
 		<title>Orion Editor command using Google Picker</title>
 		
 		<script>
-			function installIn2Another(){
+			function installIn2Another() {
 				var url = prompt("Enter Orion url");
 				if (url){
-					window.open(url + "/settings/settings.html#,category=plugins,installPlugin=http://szbra.github.com/GPicker4OEdtr/");
+					window.open(url + "/settings/settings.html#,category=plugins,installPlugin=" + window.location.href.split('#')[0]);
 				}
 			}
+			
+			window.onload = function() {
+	  			var link = document.getElementById("installIn2OrionHub");
+	  			link.href = "https://orionhub.org/settings/settings.html#,category=plugins,installPlugin=" + window.location.href.split('#')[0];
+			};
 		</script>
 	</head>
 
@@ -44,7 +49,7 @@
 				It adds a command to Orion Editor for embedding images and video usign Google Picker.
 			</p>
 			<p>
-				<a href="https://orionhub.org/settings/settings.html#,category=plugins,installPlugin=http://szbra.github.com/GPicker4OEdtr/">Install into OrionHub</a>
+				<a id="installIn2OrionHub" href="">Install into OrionHub</a>
 				or <a href="" onclick="installIn2Another();">another Orion instance</a>
 			</p>
 			</br>
