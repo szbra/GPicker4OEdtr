@@ -10,9 +10,13 @@
 
 		// Create and render a Picker object for searching images.
 		function createPicker() {
+		
+			var search = window.location.search;
+			var query = search ? search.split('=')[1] : "";
+		
 			var picker = new google.picker.PickerBuilder().
-				addView(google.picker.ViewId.IMAGE_SEARCH).
-				addView(google.picker.ViewId.VIDEO_SEARCH).
+				addView(new google.picker.View(google.picker.ViewId.IMAGE_SEARCH).setQuery(query)).
+				addView(new google.picker.View(google.picker.ViewId.VIDEO_SEARCH).setQuery(query)).
 				setCallback(pickerCallback).
 				build();
 			picker.setVisible(true);
