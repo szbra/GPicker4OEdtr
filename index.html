@@ -13,6 +13,15 @@
 		<script src="lib/pickerPlugin.js"></script>
 		
 		<title>Orion Editor command using Google Picker</title>
+		
+		<script>
+			function installIn2Another(){
+				var url = prompt("Enter Orion url");
+				if (url){
+					window.open(url + "/settings/settings.html#,category=plugins,installPlugin=http://szbra.github.com/GPicker4OEdtr/");
+				}
+			}
+		</script>
 	</head>
 
 	<body>
@@ -30,18 +39,20 @@
 	<div id="main_content_wrap" class="outer">
 		<section id="main_content" class="inner">
 			<h1>Google Picker 4 Orion Editor</h1>
-			<p>Orion Editor command using Google Picker</p>
 			<p>
-				This is a plugin for <a href="http://wiki.eclipse.org/Orion/">Eclipse Orion</a>.
+				This is a plugin for <a href="http://wiki.eclipse.org/Orion/">Eclipse Orion</a>.</br>
+				It adds a command to Orion Editor for embedding images and video usign Google Picker.
 			</p>
 			<p>
-				It adds a command to Orion Editor for embedding images and video in Orion
+				<a href="http://orionhub.org/settings/settings.html#,category=plugins,installPlugin=http://szbra.github.com/GPicker4OEdtr/">Install into OrionHub</a>
+				or <a href="" onclick="installIn2Another();">another Orion instance</a>
 			</p>
-			<p>
+			</br>
+			<!--<p>
 			To install this plugin, follow <a
 				href="http://wiki.eclipse.org/Orion/How_Tos/Installing_A_Plugin">these
 				instructions</a> using this URL: <a href="http://szbra.github.com/GPicker4OEdtr/">http://szbra.github.com/GPicker4OEdtr/</a>
-			</p>
+			</p>-->
 		</section>
 	</div>
 
@@ -49,6 +60,7 @@
 	<div id="footer_wrap" class="outer">
 		<footer class="inner">
 			<p class="copyright">Created by <a href="https://github.com/jkramarz">Jakub Kramarz</a> and Marcin Bicz<br>
+			with help from <a href="https://github.com/szbra">Szymon Brandys</a> and <a href="https://github.com/sfmccourt">Susan McCourt</a><br></br>
 			under Eclipse Public License v1.0 (http://www.eclipse.org/legal/epl-v10.html),<br>
 			and the Eclipse Distribution License v1.0 (http://www.eclipse.org/org/documents/edl-v10.html)</p>
 			<p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
